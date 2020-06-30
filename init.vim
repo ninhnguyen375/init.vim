@@ -1,6 +1,5 @@
 call plug#begin(stdpath('data') . '/plugged')
-"call plug#begin('~/nvim/plugged')
-" update something
+"call plug#begin('~/nvim/plugged') " for linux.
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
