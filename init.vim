@@ -72,7 +72,7 @@ map <C><Tab> :tabn<CR>
 map <C-space> :CocFix<CR>
 map <C-I> :Prettier<CR>
 
-" coc config
+" --> coc config
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -184,11 +184,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
@@ -221,4 +216,11 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" end coc config
+" --> end coc config
+
+" Use CTRL-S.
+map <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>a
+
+" Save on focus lost.
+set autowriteall
