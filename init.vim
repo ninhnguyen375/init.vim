@@ -1,8 +1,9 @@
-call plug#begin(stdpath('data') . '/plugged')
-"call plug#begin('~/nvim/plugged') " for linux.
+call plug#begin('~/nvim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
+  Plug 'ryanoasis/vim-devicons'
   Plug 'tpope/vim-surround'
+  Plug 'mxw/vim-jsx'
   Plug 'scrooloose/syntastic'
   Plug 'airblade/vim-gitgutter'
   Plug 'vim-airline/vim-airline'
@@ -12,11 +13,13 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'kien/ctrlp.vim'
   Plug 'mattn/emmet-vim'
+  Plug 'drewtempelmeyer/palenight.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'morhetz/gruvbox'
   Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
   Plug 'prettier/vim-prettier',  {'do': 'yarn install'}
+  Plug 'doums/darcula'
 call plug#end()
 let g:coc_global_extensions = [
   \ 'coc-snippets',
@@ -25,8 +28,15 @@ let g:coc_global_extensions = [
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
+  \ 'coc-html', 
+  \ 'coc-vimlsp', 
+  \ 'coc-highlight', 
+  \ 'coc-highlight', 
   \ ]
-colorscheme gruvbox
+" Colorscheme
+set background=dark
+colorscheme palenight
+let g:airline_theme = "palenight"
 " indent
 set autoindent
 set expandtab
@@ -56,6 +66,8 @@ set number
 set noerrorbells
 set visualbell
 set mouse=a
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
 set title
 set background=dark
 " miscellaneous
@@ -65,7 +77,6 @@ set clipboard=unnamed
 set nowritebackup
 set updatetime=300
 set backspace=indent,eol,start
-set spell
 " key map
 imap jj <Esc>
 map <C-B> :NERDTreeToggle<CR>
@@ -74,7 +85,8 @@ map <C-space> :CocFix<CR>
 map <C-I> :Prettier<CR>
 
 " --> coc config
-
+nmap <silent> <A-L> <Plug>(coc-range-select)
+xmap <silent> <A-L> <Plug>(coc-range-select)
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -221,7 +233,9 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Use CTRL-S.
 map <C-s> :w<CR>
-inoremap <C-s> <Esc>:w<CR>a
+inoremap <C-s> <Esc>:w<CR>
 
 " Save on focus lost.
 set autowriteall
+" ctrlp ignore
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
