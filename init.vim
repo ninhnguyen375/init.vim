@@ -80,10 +80,10 @@ set backspace=indent,eol,start
 " key map
 imap jj <Esc>
 map <C-B> :NERDTreeToggle<CR>
-map <C><Tab> :tabn<CR>
 map <C-space> :CocFix<CR>
-map <C-I> :Prettier<CR>
-
+map <C-I> :tabn<CR>
+map q<C-I> :tabp<CR>
+map <C-t> :tabnew<CR>
 " --> coc config
 nmap <silent> <A-L> <Plug>(coc-range-select)
 xmap <silent> <A-L> <Plug>(coc-range-select)
