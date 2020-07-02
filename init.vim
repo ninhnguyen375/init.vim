@@ -231,6 +231,31 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " --> end coc config
 
+" --> Nerd commenter config
+
+filetype plugin on
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Add your own custom formats or override the defaults
+"let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+" --> End Nerd commenter config
+
 " Use CTRL-S.
 map <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
@@ -239,3 +264,7 @@ inoremap <C-s> <Esc>:w<CR>
 set autowriteall
 " ctrlp ignore
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" nerdcommenter
+map <C-\> <leader>c<space>
+" wrap with quotes
+vmap " S"
