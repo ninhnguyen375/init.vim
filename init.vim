@@ -20,6 +20,7 @@ call plug#begin('~/nvim/plugged')
   Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
   Plug 'prettier/vim-prettier',  {'do': 'yarn install'}
   Plug 'doums/darcula'
+  Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 filetype plugin on
 " Map leader key
