@@ -21,6 +21,9 @@ call plug#begin('~/nvim/plugged')
   Plug 'prettier/vim-prettier',  {'do': 'yarn install'}
   Plug 'doums/darcula'
 call plug#end()
+filetype plugin on
+" Map leader key
+let mapleader = " " 
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
@@ -30,7 +33,6 @@ let g:coc_global_extensions = [
   \ 'coc-json', 
   \ 'coc-html', 
   \ 'coc-vimlsp', 
-  \ 'coc-highlight', 
   \ 'coc-highlight', 
   \ ]
 " Colorscheme
@@ -63,6 +65,7 @@ set wildmenu
 set tabpagemax=50
 set cursorline
 set number
+set relativenumber
 set noerrorbells
 set visualbell
 set mouse=a
@@ -233,7 +236,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " --> Nerd commenter config
 
-filetype plugin on
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
@@ -244,7 +246,7 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 
 " Add your own custom formats or override the defaults
-"let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCustomDelimiters = { 'javascript.jsx': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' } }
 
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
@@ -266,5 +268,6 @@ set autowriteall
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " nerdcommenter
 map <C-\> <leader>c<space>
+map q<C-\> <leader>cm
 " wrap with quotes
 vmap " S"
